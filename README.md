@@ -1,6 +1,10 @@
 # Closure
 
-Closure is a system for metering, entitlements, and billing. Closure lets you build powerful functionality on top of these primitives, like:
+Closure is a self-enclosed system for metering, entitlements, and billing. The primitives are designed for AI products to discover their value as quickly as possible through experimentation. 
+
+## Table 
+
+Closure lets you build powerful functionality on top of these primitives, like:
 
 1. Actioning and alerting on customer lifecycle events
 1. Granting discounts and referral bonuses
@@ -74,8 +78,7 @@ If you choose your own: make the two keys with `openssl rand -base64 32`, and
 use only letters and numbers for the passwords (some of these services put
 the password inside a web address, where symbols like `@` or `/` break it).
 The Hatchet password also needs an uppercase letter, a lowercase letter, and a
-number. `CLOSURE_NANGO_SECRET_KEY` must be a UUID (make one with `uuidgen`),
-since Nango rejects anything else.
+number.
 
 If your webhooks need to reach machines on your own network (like an internal
 service at `http://10.0.0.5`), also add
@@ -109,7 +112,7 @@ The first time only, make the passwords and keys the stack needs. They're
 saved in `bin/.env`, which the stack and the tests both read:
 
 ```
-node bin/generate-env.ts
+bin/generate-env
 ```
 
 Now, to start and run the whole stack in Docker, just run:
@@ -118,14 +121,7 @@ Now, to start and run the whole stack in Docker, just run:
 docker compose -p closure -f bin/compose.yml up -d
 ```
 
-Default UI is available at http://localhost:3226. The web portal and docs ask
-for a login: username `admin`, password `CLOSURE_API_KEY` from `bin/.env`.
-API calls send the same key as an `Authorization: Bearer` header.
-
-Both commands work the same in PowerShell on Windows. One Windows tip: clone
-the repo inside WSL (e.g. into `~/closure` in an Ubuntu terminal) rather than
-onto the Windows drive. Docker reads files there much faster, and it reliably
-notices your edits, which the live reloading below depends on.
+Default UI is available at http://localhost:3226.
 
 This starts the same services as the one-liner above: `deploy-hobby` uses the
 checkout's `bin/compose.yml` when run from a clone, so both paths produce the
