@@ -1,6 +1,6 @@
 <div align="center">
 
-# Closure: Pricing, metering, and actions for AI products
+# Closure: Entitlements, metering, and actions for AI products
 
 ### Iterate on pricing, and act on customer usage, while your meters stay precise.
 
